@@ -7,12 +7,14 @@ Repositório criado para um teste para empresa SisFrete, para demonstrar conheci
 ## Instalação
 
 - Clonar o repositório com ```git clone https://github.com/fbatisteti/SisFrete.git```
-- Ajustar o [arquivo .env.example]() para apontar para o seu banco de dados
+- Ajustar o [arquivo .env.example](https://github.com/fbatisteti/SisFrete/blob/main/sisfrete/.env.example) para apontar para o seu banco de dados
     - Depois renomear o arquivo para apenas ```.env```
-- Rodar os comandos SQLs para criar as tabelas no banco de dados de sua escolha
-    - Os comandos estão [neste arquivo]().
+- Criar o banco de dados. Isso pode ser feito pelo Laravel ou por SQL
+    - LARAVEL: rodar ```php artisan migrate```
+    - SQL: Rodar os comandos SQLs para criar as tabelas no banco de dados de sua escolha
+        - Os comandos estão [neste arquivo](https://github.com/fbatisteti/SisFrete/blob/main/sql_queries_create.sql).
 - Caso queira pré-popular o banco com alguns dados, deixei alguns comandos prontos
-    - Os comandos estão [neste arquivo]()
+    - Os comandos estão [neste arquivo](https://github.com/fbatisteti/SisFrete/blob/main/sql_queries_populate.sql)
 
 ## Sobre as escolhas...
 
@@ -42,7 +44,9 @@ Aqui é a representação de relacionamento N entre pedidos e produtos.
 
 ### ... da API:
 
-asd
+Fiz vários endpoints para cada função, ao invés de somente os que foram solicitados. Quase todas as tabelas tem um CRUD, salvo algumas condições específicas que, julgo eu, atrapalhariam a integridade do banco de dados.
+
+A documentação da API pode ser encontrada [aqui]().
 
 ### ... das consultas:
 

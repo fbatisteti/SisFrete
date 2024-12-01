@@ -14,6 +14,7 @@ CREATE TABLE Pedidos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     cliente_id INT NOT NULL,
     valor_total FLOAT NOT NULL,
+    pagamento_id INT DEFAULT NULL, -- É uma FK "falsa"
     FOREIGN KEY (cliente_id) REFERENCES Clientes(id)
 );
 
@@ -41,8 +42,8 @@ CREATE TABLE Categorias (
     ativo INT DEFAULT(1)
 );
 
--- Tabela ProdutosCategorias (para relacionamento N:N entre Produtos e Categorias)
-CREATE TABLE ProdutosCategorias (
+-- Tabela Produtos_Categorias (para relacionamento N:N entre Produtos e Categorias)
+CREATE TABLE Produtos_Categorias (
     id INT PRIMARY KEY AUTO_INCREMENT,
     produto_id INT NOT NULL,
     categoria_id INT NOT NULL,
@@ -50,11 +51,12 @@ CREATE TABLE ProdutosCategorias (
     FOREIGN KEY (categoria_id) REFERENCES Categorias(id)
 );
 
--- Tabela PedidosProdutos (para relacionamento N:N entre Pedidos e Produtos)
-CREATE TABLE PedidosProdutos (
+-- Tabela Pedidos_Produtos (para relacionamento N:N entre Pedidos e Produtos)
+CREATE TABLE Pedidos_Produtos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     pedido_id INT NOT NULL,
     produto_id INT NOT NULL,
+    quantidade INT NOT NULL,
     FOREIGN KEY (pedido_id) REFERENCES Pedidos(id),
     FOREIGN KEY (produto_id) REFERENCES Produtos(id)
 );
