@@ -50,8 +50,8 @@ Aqui é a representação de relacionamento N entre pedidos e produtos.
 Fiz vários endpoints para cada função, ao invés de somente os que foram solicitados.
 Quase todas as tabelas tem um CRUD completo, salvo algumas condições específicas que, julgo eu, atrapalhariam a integridade do banco de dados.
 
-A documentação da API pode ser encontrada [aqui]().
+A documentação da API pode ser encontrada [aqui](https://github.com/fbatisteti/SisFrete/tree/main/Postman%20Collections).
 
 ### ... das consultas:
 
-Também foi solicitado algumas consultas simulando relatórios. As mesmas podem ser encontradas [neste arquivo]().
+Também foi solicitado algumas consultas simulando relatórios. As mesmas podem ser encontradas [neste arquivo](https://github.com/fbatisteti/SisFrete/blob/main/sql_queries_consultas.sql).
