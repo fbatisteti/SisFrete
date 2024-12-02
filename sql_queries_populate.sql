@@ -42,6 +42,22 @@ INSERT INTO Pedidos_Produtos (pedido_id, produto_id, quantidade) VALUES
 
 INSERT INTO Pagamentos (pedido_id, valor, concluido) VALUES 
 (1, 1525.00, 1),
-(2, 3050.00, 1),
+(2, 3000.00, 1),
 (3, 800.00, 0),
 (4, 50.00, 1);
+
+UPDATE Pedidos
+SET pagamento_id = 1
+WHERE id = 1;
+
+UPDATE Pedidos
+SET pagamento_id = 2
+WHERE id = 2;
+
+UPDATE Pedidos
+SET pagamento_id = 3
+WHERE id = 3;
+
+UPDATE Pedidos
+SET pagamento_id = 4
+WHERE id = 4;

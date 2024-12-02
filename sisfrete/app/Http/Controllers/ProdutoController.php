@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    public function index()
-    {
-        echo "aaa";
-        $produtos = Produto::all();
-        return response()->json($produtos);
-    }
+    // public function index()
+    // {
+    //     $produtos = Produto::all();
+    //     return response()->json($produtos);
+    // }
 
     public function store(Request $request)
     {
@@ -24,6 +23,32 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
         return response()->json($produto);
+    }
+
+    public function filtrar(Request $request)
+    {
+        $query = Produto::query();
+
+        if ($request->has('descricao')) {
+            $query->where('descricao', 'like', '%' . $request->input('descricao') . '%');
+        }
+
+        if ($request->has('preco_min')) {
+            $query->where('valor', '>=', $request->input('preco_min'));
+        }
+
+        if ($request->has('preco_max')) {
+            $query->where('valor', '<=', $request->input('preco_max'));
+        }
+
+        if ($request->has('categoria')) {
+            $query->whereHas('categorias', function ($q) use ($request) {
+                $q->where('descricao', 'like', '%' . $request->input('categoria') . '%');
+            });
+        }
+
+        $produtos = $query->get();
+        return response()->json($produtos);
     }
 
     public function update(Request $request, $id)

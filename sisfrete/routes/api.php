@@ -59,8 +59,9 @@ Route::put('/pagamentos/pago/{id}', [PagamentoController::class, 'pago']);
 Route::put('/pagamentos/pendente/{id}', [PagamentoController::class, 'pendente']);
 Route::delete('/pagamentos/{id}', [PagamentoController::class, 'destroy']);
 
-Route::get('/produtos', [ProdutoController::class, 'index']);
+Route::get('/produtos', [ProdutoController::class, 'filtrar']);
 Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
+Route::get('/produtos/filtrar', [ProdutoController::class, 'filtrar']);
 Route::post('/produtos', [ProdutoController::class, 'store']);
 Route::put('/produtos/editar/{id}', [ProdutoController::class, 'update']);
 Route::put('/produtos/ativar/{id}', [ProdutoController::class, 'ativar']);
